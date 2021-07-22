@@ -1,0 +1,16 @@
+info:
+    title: 'Agrific API'
+    version: 2.0.0
+openapi: 3.0.0
+paths:
+    /auth/signin/google: {get: {responses: {}, tags: [auth]}}
+    /auth/signin/google/callback: {get: {responses: {}, tags: [auth]}}
+    /auth/signup: {post: {responses: {'201': {description: 'User successfully created. Returns created user.'}, '400': {description: 'Bad request.'}, '500': {description: 'Something went wrong.'}}, tags: [auth], summary: 'Create a new user.', operationId: createUser, requestBody: {content: {application/json: {schema: {additionalProperties: false, properties: {email: {type: string, format: email, maxLength: 255}, password: {type: string}, firstName: {type: string, maxLength: 255}, lastName: {type: string, maxLength: 255}, phoneNumber: {type: string, maxLength: 255}, account: {type: object, properties: {type: {enum: [seller, buyer]}, subType: {enum: [individual, business]}}}, verificationId: {type: object, properties: {type: {type: string}, number: {type: string}}}, companyName: {type: string, maxLength: 255}, rcNumber: {type: number, maximum: 9999999999}}, required: [email, password, firstName, lastName, phoneNumber], type: object}}}, required: true}}}
+    /auth/signin: {post: {responses: {'400': {description: 'Bad request.'}}, tags: [auth], requestBody: {content: {application/json: {schema: {additionalProperties: false, properties: {email: {type: string, format: email, maxLength: 255}, password: {type: string}}, required: [email, password], type: object}}}, required: true}}}
+    /auth/signout: {post: {responses: {'401': {description: 'JWT is missing or invalid.'}}, tags: [auth], security: [{bearerAuth: []}]}}
+    /logs: {get: {responses: {'200': {description: 'Returns a list of logss.'}, '400': {description: 'Invalid query parameters.'}, '401': {description: Unauthorized.}, '403': {description: Forbidden.}, '405': {description: 'Temporarily disabled.'}}, tags: [log], summary: 'Find logs.', description: 'The query parameters "skip", "take", "from", "until" and "order" can be used for pagination. The first is the offset and the second is the number of elements to be returned, etc.', operationId: findLogs, parameters: [{in: query, name: skip, schema: {type: number}}, {in: query, name: take, schema: {type: number}}, {in: query, name: from, schema: {type: string}}, {in: query, name: until, schema: {type: string}}, {in: query, name: order, schema: {type: string}}], deprecated: true}}
+    '/*': {options: {responses: {}}}
+servers:
+    - {url: 'http://localhost:3001/api/v2'}
+components:
+    securitySchemes: {bearerAuth: {bearerFormat: JWT, scheme: bearer, type: http}}

@@ -2,12 +2,42 @@
   "port": "env(PORT)",
   "settings": {
     "loggerFormat": "tiny",
-    "session": {
-      "store": "@foal/typeorm"
+    "social": {
+      "google": {
+        "clientId": "env(GOOGLE_CLIENT_ID)",
+        "clientSecret": "env(GOOGLE_CLIENT_SECRET)",
+        "redirectUri": "env(GOOGLE_OAUTH_CALLBACK)"
+      }
+    },
+    "ajv": {
+      "allErrors": true
+    },
+    "jwt": {
+      "secret": "env(JWT_SECRET)",
+      "secretEncoding": "base64",
+      "csrf": {
+        "enabled": true,
+        "cookie": {
+          "name": "CSRF-Token"
+        }
+      }
+    },
+    "aws": {
+      "accessKeyId": "env(AWS_ACCESS_KEY_ID)",
+      "secretAccessKey": "env(AWS_SECRET_ACCESS_KEY)"
+    },
+    "disk": {
+      "driver": "@foal/aws-s3",
+      "s3": {
+        "bucket": "agrific-devel"
+      }
+    },
+    "multipartRequests": {
+      "fileSizeLimit": 20048,
+      "fileNumberLimit": 4
+    },
+    "openapi": {
+      "useHooks": true
     }
-  },
-  "database": {
-    "type": "better-sqlite3",
-    "database": "./db.sqlite3"
   }
 }

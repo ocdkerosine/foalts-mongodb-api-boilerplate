@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - v16
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-4.8
+      - g++-4.8
+script:
+  - echo '*****BUILD STARTED******'
+  - echo 'Installing Dependencies'
+  - npm install
+  - echo 'Running Unit Tests'
+  - npm test
+  - echo 'Running End to End Tests'
+  - npm e2e
+env:
+  global:
+    - CXX=g++-4.8

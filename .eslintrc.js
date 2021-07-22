@@ -20,6 +20,7 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
+    'indent': [2, 2, { SwitchCase: 1 }],
     '@typescript-eslint/array-type': 'error',
     '@typescript-eslint/explicit-member-accessibility': [
       'error', { 'accessibility': 'no-public' }

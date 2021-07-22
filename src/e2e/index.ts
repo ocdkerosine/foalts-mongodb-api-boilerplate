@@ -1,7 +1,6 @@
 // 3p
 import { createApp } from '@foal/core';
 import * as request from 'supertest';
-import { getConnection } from 'typeorm';
 
 // App
 import { AppController } from '../app/app.controller';
@@ -14,7 +13,7 @@ describe('The server', () => {
     app = await createApp(AppController);
   });
 
-  after(() => getConnection().close());
+  // after(() => getConnection().close());
 
   it('should return a 200 status on GET / requests.', () => {
     return request(app)
