@@ -1,5 +1,5 @@
 {
-  "name": "foalts-mongodb-boilerplate",
+  "name": "foalts-mongodb-api-boilerplate",
   "version": "1.0.0",
   "main": "src",
   "private": true,
