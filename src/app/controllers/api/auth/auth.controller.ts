@@ -50,7 +50,7 @@ export class AuthController {
         return new HttpResponseInternalServerError({
           err: error.message,
           message: 'Something went wrong.',
-          path: ctx.request.path,
+          path: ctx.request.path
         })
       }
     }
@@ -85,7 +85,7 @@ export class AuthController {
       return new HttpResponseInternalServerError({
         err: error.message,
         message: 'Something went wrong.',
-        path: ctx.request.path,
+        path: ctx.request.path
       })
     }
   }
@@ -121,7 +121,7 @@ export class AuthController {
       return new HttpResponseInternalServerError({
         err: error.message,
         message: 'Something went wrong.',
-        path: ctx.request.path,
+        path: ctx.request.path
       })
     }
   }

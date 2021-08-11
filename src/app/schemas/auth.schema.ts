@@ -12,8 +12,8 @@ export const signUpCredentialsSchema = {
       type: 'object' ,
       additionalProperties: false,
       properties: {
-        type: { enum: User.schema.path('account.type').enumValues },
-        subType: { enum: User.schema.path('account.subType').enumValues }
+        type: { enum: User.schema.path('account.type')['enumValues'] },
+        subType: { enum: User.schema.path('account.subType')['enumValues'] }
       }
     },
     verificationId: {

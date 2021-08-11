@@ -9,11 +9,11 @@ import { ApiController } from './api.controller'
     response.setHeader('WWW-Authenticate', 'Basic realm="Authorization Required"')
     return response
   } else {
-    const credentials = Buffer.from((token.split(' ').pop()) as string, 'base64').toString('ascii').split(':');
+    const credentials = Buffer.from((token.split(' ').pop()) as string, 'base64').toString('ascii').split(':')
     if (credentials[0] === 'username' && credentials[1] === 'password') {
       return
     } else {
-      return new HttpResponseUnauthorized('Access denied, Incorrect credentials)');
+      return new HttpResponseUnauthorized('Access denied, Incorrect credentials)')
     }
   }
 })

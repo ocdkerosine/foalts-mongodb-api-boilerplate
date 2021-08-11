@@ -1,6 +1,6 @@
 import { /*Env, */Context, getAjvInstance, controller, Get, HttpResponse, HttpResponseInternalServerError, HttpResponseNotFound, IAppController, render } from '@foal/core'
-import mongoose from '../mongoose';
-import * as config from '../config'
+import mongoose from '../config/mongoose'
+import * as config from '../config/config'
 import { ApiController, OpenApiController } from './controllers'
 import { LoggerService } from './services/logger-service.service'
 import * as ajvErrors from 'ajv-errors'
@@ -15,9 +15,9 @@ export class AppController implements IAppController {
 
   async init() {
     if (configs.mongo.uri) {
-      await mongoose.connect(configs.mongo.uri);
+      await mongoose.connect(configs.mongo.uri)
     }
-    mongoose.Promise = Promise;
+    mongoose.Promise = Promise
     ajvErrors(getAjvInstance())
   }
 
@@ -42,8 +42,8 @@ export class AppController implements IAppController {
     return new HttpResponseInternalServerError({
       err: error.message,
       message: 'Something went wrong.',
-      path: ctx.request.path,
-    });
+      path: ctx.request.path
+    })
   }
 
 }

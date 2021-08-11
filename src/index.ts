@@ -24,9 +24,9 @@ async function main(): Promise<void> {
     LoggerService.log({ level: 'error', message: 'Could not close connections in time, forcefully shutting down.' })
     process.exit(1)
   }
-  
+
   let shuttingDown = false
-  
+
   const gracefulShutdown = (): void => {
     if (shuttingDown) return
     LoggerService.log({ level: 'info', message: 'Shutting down.' })
@@ -73,3 +73,5 @@ main()
     LoggerService.log({ level: 'error', message: err })
     process.exit(1)
   })
+
+// TODO use node-skeleton setup to make this better then prepare for v3

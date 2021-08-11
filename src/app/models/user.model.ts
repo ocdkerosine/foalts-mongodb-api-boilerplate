@@ -62,6 +62,8 @@ class UserTransactionDetails {
   settled!: number;
 }
 
+// TODO get mongoose plugins to work
+
 // @plugin(keywords, { paths: ['firstName', 'lastName', 'companyName'] })
 // @plugin(deepPopulate)
 @modelOptions({

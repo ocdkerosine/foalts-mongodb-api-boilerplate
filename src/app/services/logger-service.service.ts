@@ -59,7 +59,7 @@ export const LoggerService = {
       new winston.transports.DailyRotateFile({ json: true, dirname: path.join(__dirname, '../../../logs/error'), filename: 'error-%DATE%.log', datePattern: 'YYYY-MM-DD-HH', createSymlink: true, symlinkName: 'error.log', maxFiles: '30d', level: 'error', maxSize: '20m', utc: true, zippedArchive: true }),
 
       // new winston.transports.File({ filename: path.join(__dirname, '../../../logs/combined.log') }),
-      new winston.transports.DailyRotateFile({ json: true, dirname: path.join(__dirname, '../../../logs/combined'), filename: 'combined-%DATE%.log', datePattern: 'YYYY-MM-DD-HH', createSymlink: true, symlinkName: 'combined.log', maxFiles: '30d', maxSize: '20m', utc: true, zippedArchive: true }),
+      new winston.transports.DailyRotateFile({ json: true, dirname: path.join(__dirname, '../../../logs/combined'), filename: 'combined-%DATE%.log', datePattern: 'YYYY-MM-DD-HH', createSymlink: true, symlinkName: 'combined.log', maxFiles: '30d', maxSize: '20m', utc: true, zippedArchive: true })
     ],
     exceptionHandlers: [
       // new winston.transports.File({ filename: path.join(__dirname, '../../../logs/exceptions.log') }),

@@ -1,12 +1,12 @@
 {
   "name": "agrific-api",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "main": "src",
   "private": true,
   "description": "Client facing API for the Agrific product",
   "scripts": {
     "build": "foal rmdir build && tsc -p tsconfig.app.json",
-    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "start": "pm2-runtime start ecosystem.config.js",
     "dev": "npm run build && concurrently \"tsc -p tsconfig.app.json -w\" \"supervisor -w ./build,./config -e js,json,yml --no-restart-on error ./build/index.js\"",
     "build:test": "foal rmdir build && tsc -p tsconfig.test.json",
     "start:test": "mocha --file ./build/test.js \"./build/**/*.spec.js\"",
