@@ -5,6 +5,7 @@
   "private": true,
   "description": "Boilerplate code for production ready-to-ship API's",
   "scripts": {
+    "preinstall": "npm install -g @foal/cli",
     "build": "foal rmdir build && tsc -p tsconfig.app.json",
     "start": "pm2-runtime start ecosystem.config.js",
     "dev": "npm run build && concurrently \"tsc -p tsconfig.app.json -w\" \"supervisor -w ./build,./config -e js,json,yml --no-restart-on error ./build/index.js\"",
