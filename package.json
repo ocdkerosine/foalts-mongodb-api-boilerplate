@@ -1,9 +1,9 @@
 {
-  "name": "agrific-api",
+  "name": "foalts-mongodb-boilerplate",
   "version": "1.0.0",
   "main": "src",
   "private": true,
-  "description": "Client facing API for the Agrific product",
+  "description": "Boilerplate code for production ready-to-ship API's",
   "scripts": {
     "build": "foal rmdir build && tsc -p tsconfig.app.json",
     "start": "pm2-runtime start ecosystem.config.js",
