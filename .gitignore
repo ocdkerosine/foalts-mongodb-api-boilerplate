@@ -3,7 +3,7 @@ npm-debug.log
 build
 logs
 .env
-.env.*
+.env.development
 .DS_Store
 node_modules
 .tmp
