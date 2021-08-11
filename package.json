@@ -20,9 +20,6 @@
     "docker": "npm run build && concurrently \"tsc -p tsconfig.app.json -w\" \"supervisor -w ./build,./config -e js,json,yml --no-restart-on error ./build/index.js\"",
     "reload": "pm2-runtime reload ecosystem.config.js --env production"
   },
-  "engines": {
-    "node": ">=10"
-  },
   "dependencies": {
     "@foal/aws-s3": "^2.5.0",
     "@foal/core": "^2.0.0",
